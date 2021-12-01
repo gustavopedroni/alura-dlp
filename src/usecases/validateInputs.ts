@@ -7,16 +7,14 @@ export default function validateInputs(
   { user, password }: Options
 ) {
   if (!validateUrl(url)) {
-    throw new InvalidInput(
-      'O link precisa apontar para algum vídeo, lição, curso ou formação'
-    )
+    throw new InvalidInput('O link precisa apontar para o domínio da alura')
   }
 
   if (!validateUser(user)) {
-    throw new InvalidInput('E-mail must be a e-mail type')
+    throw new InvalidInput('Usuário é do tipo e-mail')
   }
 
   if (!validatePassword(password)) {
-    throw new InvalidInput('Pass must have at least 5 caracters')
+    throw new InvalidInput('Senha deve ser no mínimo 5 caracteres')
   }
 }

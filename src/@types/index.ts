@@ -5,5 +5,5 @@ export interface Options {
 }
 
 export enum UrlType {
-  'FORMACAO' = 'formacao'
+  'FORMATION' = 'formacao'
 }
