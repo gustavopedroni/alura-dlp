@@ -17,6 +17,7 @@
     "lookpath": "^1.2.2",
     "node-emoji": "^1.11.0",
     "puppeteer": "^12.0.1",
+    "remove-accents": "^0.4.2",
     "tsconfig-replace-paths": "^0.0.11"
   },
   "devDependencies": {

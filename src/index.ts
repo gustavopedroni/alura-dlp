@@ -2,12 +2,18 @@
 
 import { Command } from 'commander'
 
-import { actionRunner } from '@src/actions'
 import downloadUseCase from '@src/usecases/download'
+import { commandHandler } from '@src/utils/handlers'
 
 import { version } from '../package.json'
 
 const program = new Command()
+
+export interface Options {
+  user: string
+  password: string
+  extractText?: boolean
+}
 
 program
   .argument('<url>', 'link to download')
@@ -19,7 +25,7 @@ program
   .option('-e, --extract-text', 'Extract text from books')
   .description('Pass the url to download')
   .version(version)
-  .action(actionRunner((args, opts) => downloadUseCase(args, opts)))
+  .action(commandHandler((args, opts) => downloadUseCase(args, opts)))
 
 program.parse(process.argv)
 

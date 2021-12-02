@@ -4,8 +4,8 @@ import emoji from 'node-emoji'
 
 import { InstallFFMPeg } from '@src/errors/ffmpeg'
 
-export default async function validateReq() {
-  const ffmpeg = await lookpath('ffmpege')
+export default async function checkRequerimentsUseCase() {
+  const ffmpeg = await lookpath('ffmpeg')
 
   if (!ffmpeg) {
     throw new InstallFFMPeg(

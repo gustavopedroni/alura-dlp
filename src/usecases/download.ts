@@ -1,14 +1,16 @@
-import { Options } from '@src/@types'
-import { info } from '@src/messages'
-import validateInputs from '@src/usecases/validateInputs'
-import validateReq from '@src/usecases/validateReq'
-import { getUrlType } from '@src/validators/url'
+import chalk from 'chalk'
+
+import { Options } from '@src/index'
+import checkInputsUseCase from '@src/usecases/checks/inputs'
+import checkRequerimentsUseCase from '@src/usecases/checks/requeriments'
+import { getUrlHumanType } from '@src/usecases/url'
+import { info } from '@src/utils/logger'
 
 export default async function downloadUseCase(url: string, options: Options) {
-  await validateReq()
-  validateInputs(url, options)
+  await checkRequerimentsUseCase()
+  checkInputsUseCase(url, options)
 
-  const urlType = getUrlType(url)
+  const urlType = getUrlHumanType(url)
 
-  info(`Identificado tipo de download: ${urlType}`)
+  info(`Encontrado url do tipo: ${chalk.bold.cyanBright(urlType)}`)
 }
